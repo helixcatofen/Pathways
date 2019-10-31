@@ -1,5 +1,5 @@
 from app import app
-from flask import redirect
+from flask import redirect, render_template
 
 """
 List of different pages:
@@ -18,7 +18,7 @@ def index():
 
 @app.route('/support_options')
 def support_options():
-    return ""
+    return render_template('support_me.html', title='Support')
 
 
 @app.route('/profiles_grid')
@@ -40,7 +40,3 @@ def login():
 # @app.route('/profile/donate')
 # def donate():
 #     return ""
-
-
-
-

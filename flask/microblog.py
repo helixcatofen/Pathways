@@ -1,1 +1,1 @@
-from pathway import app
+from app import app
