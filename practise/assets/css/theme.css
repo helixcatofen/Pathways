@@ -1,9 +1,3 @@
-/* Base Formatting for Pathway */
-
-.user-related {
-    background-color: blue;
-}
-
 /* Sticky Footer Classes */
 
 html,
@@ -29,6 +23,6 @@ background-color: #e82a31;
 }
 
 .nav-link {
-    font-size:1.2em;
+    font-size:1.6em;
     color:white;
 }
