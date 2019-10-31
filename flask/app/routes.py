@@ -51,6 +51,6 @@ def profile(name):
     return render_template('profile.html', profile=profile)
 
 
-@app.route('/login')
+@app.route('/login/john')
 def login():
     return render_template('login.html')

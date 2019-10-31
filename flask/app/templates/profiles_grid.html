@@ -10,22 +10,24 @@
 <input type="text" class="form-control" placeholder="Find Someone" aria-label="Find Someone"
     aria-describedby="btnGroupAddon">
 <div class="container text-center">
-    {% for profile in profiles %}
+    {% for profile_ in profiles %}
     <div class="row">
         <div class="col">
-            <div class="card">
-                <img class="card-img-top" src="{{url_for('static',filename=profile['picture']['S'])}}" width=0.5vw
-                    alt="Card image cap">
-                <div class="card-body">
-                    <h5 class="card-title">{{profile["user"]["S"] + " " + profile["lastName"]["S"]}}</h5>
-                    <div class="text-center">
-                        {{profile["location"]["S"]}}
+            <a href="/profile/{{ profile_['user']['S'] }}">
+                <div class="card">
+                    <img class="card-img-top" src="{{url_for('static',filename=profile_['picture']['S'])}}" width=0.5vw
+                        alt="Card image cap">
+                    <div class="card-body">
+                        <h5 class="card-title">{{profile_["user"]["S"] + " " + profile_["lastName"]["S"]}}</h5>
+                        <div class="text-center">
+                            {{profile_["location"]["S"]}}
+                        </div>
+                        <img class="icon" src="{{url_for('static',filename='icons/heart.svg')}}" width=14rem
+                            alt="Sponsor Icon">
+                        14 Sponsors
                     </div>
-                    <img class="icon" src="{{url_for('static',filename='icons/heart.svg')}}" width=14rem
-                        alt="Sponsor Icon">
-                    14 Sponsors
                 </div>
-            </div>
+            </a>
         </div>
     </div>
     {% endfor %}
