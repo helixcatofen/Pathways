@@ -5,12 +5,10 @@ MAINTAINER Xavier Weiss 2246306w@student.gla.ac.uk
 RUN apt-get update && \
     apt-get install -y python-pip python-dev
 
-COPY ./requirements.txt /app/requirements.txt
+COPY ./requirements.txt /setup/requirements.txt
 
-WORKDIR /app
+WORKDIR /setup
 
 RUN pip install -r requirements.txt
-
-COPY . /app
 
 ENTRYPOINT [ "python" ]

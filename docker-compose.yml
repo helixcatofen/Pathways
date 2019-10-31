@@ -3,20 +3,17 @@ services:
   main:
     build:
       context: .
-      dockerfile: Dockerfile_main
-    # image: deep_green:latest
+      dockerfile: Dockerfile
     ports:
         - 4000:80
     user: '0'
     volumes:
-      - ./assets:/app/assets
-      - ./js:/app/js
-      - ./css:/app/css
-      - $HOME/.Xauthority:/root/.Xauthority:rw
-      - /tmp/.X11-unix:/tmp/.X11-unix
+      - ./flask:/flask
     environment:
       - DISPLAY=$DISPLAY
       - QT_X11_NO_MITSHM=1
+      - FLASK_APP=/app/pathway
+      - FLASK_ENV=development
     devices:
       - "/dev/dri:/dev/dri"
     network_mode: "host"
