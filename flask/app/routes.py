@@ -12,7 +12,7 @@ profile
 """
 
 
-def query_db():
+def query_db(key=None):
     url = "https://pjgf4yqxo7.execute-api.eu-west-3.amazonaws.com/default/hackBackend"
 
     querystring = {"TableName": "ciscodb"}
@@ -28,11 +28,10 @@ def query_db():
     return response.json()["Items"]
 
 
-
 @app.route('/')
 @app.route('/index')
 def index():
-    return redirect('/profiles_grid')
+    return render_template('index.html')
 
 
 @app.route('/support_options')
@@ -46,11 +45,12 @@ def profiles_grid():
     return render_template('profiles_grid.html', profiles=profiles)
 
 
-@app.route('/profile')
+@app.route('/profile/<name>')
 def profile():
-    return render_template('profile.html')
+    profile = query_db(name)
+    return render_template('profile.html', profile=profile)
 
 
 @app.route('/login')
-def login():
+def login(name):
     return render_template('login.html')
