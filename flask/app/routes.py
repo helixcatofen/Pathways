@@ -4,6 +4,7 @@ import requests
 
 """
 List of different pages:
+
 login
 choosing panel
 grid view / profiles_grid
@@ -48,9 +49,3 @@ def profile():
 @app.route('/login')
 def login():
     return render_template('login.html')
-
-
-# TODO needs donate page
-# @app.route('/profile/donate')
-# def donate():
-#     return ""

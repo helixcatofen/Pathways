@@ -4,7 +4,10 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
         integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="{{url_for('static',filename='css/theme.css')}}">
-    {% block css %}{% endblock %}
+
+    {% block css %}
+    {% endblock %}
+
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
         integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
         crossorigin="anonymous"></script>
@@ -34,17 +37,17 @@
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav ml-auto">
                     <li class="navbar-btn btn btn-danger active">
-                        <a class="nav-link" href="#">
+                        <a class="nav-link" href="/">
                             Home
                         </a>
                     </li>
                     <li class="navbar-btn btn btn-danger bg-red">
-                        <a class="nav-link" href="#">
-                            FAQ
+                        <a class="nav-link" href="/profile">
+                            Profile
                         </a>
                     </li>
                     <li class="navbar-btn btn btn-danger bg-red">
-                        <a class="nav-link" href="#">
+                        <a class="nav-link" href="/login">
                             Login
                         </a>
                     </li>
@@ -55,7 +58,7 @@
                     </li>
                     <li class="navbar-btn btn btn-danger bg-red">
                         <a class="nav-link" href="#">
-                            Profile
+                            FAQ
                         </a>
                     </li>
                 </ul>
@@ -64,7 +67,9 @@
     </nav>
 
     <!-- Page Content -->
-    {% block content %}{% endblock %}
+    {% block content %}
+
+    {% endblock %}
     <!-- Footer -->
 
     <div class="d-flex flex-column">
