@@ -46,11 +46,11 @@ def profiles_grid():
 
 
 @app.route('/profile/<name>')
-def profile():
+def profile(name):
     profile = query_db(name)
     return render_template('profile.html', profile=profile)
 
 
 @app.route('/login')
-def login(name):
+def login():
     return render_template('login.html')
