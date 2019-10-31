@@ -13,22 +13,22 @@ profile
 @app.route('/')
 @app.route('/index')
 def index():
-    return redirect('/support_options')
+    return redirect('/profiles_grid')
 
 
 @app.route('/support_options')
 def support_options():
-    return render_template('support_me.html', title='Support')
+    return render_template('')
 
 
 @app.route('/profiles_grid')
 def profiles_grid():
-    return ""
+    return render_template('profiles_grid.html')
 
 
 @app.route('/profile')
 def profile():
-    return ""
+    return render_template('profile.html')
 
 
 @app.route('/login')
