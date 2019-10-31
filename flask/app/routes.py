@@ -10,6 +10,8 @@ choosing panel
 grid view / profiles_grid
 profile
 """
+
+
 def query_db():
     url = "https://pjgf4yqxo7.execute-api.eu-west-3.amazonaws.com/default/hackBackend"
 
@@ -23,6 +25,7 @@ def query_db():
     response = requests.request("GET", url, headers=headers, params=querystring)
 
     return response.json()["Items"][0]
+
 
 @app.route('/')
 @app.route('/index')
