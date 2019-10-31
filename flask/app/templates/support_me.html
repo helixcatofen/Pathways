@@ -1,0 +1,70 @@
+{% extends "base.html" %}
+
+{% block css %}
+<link rel="stylesheet" href="{{url_for('static',filename='css/grid.css')}}">
+{% endblock %}
+
+{% block content %}
+<div class="container text-center">
+    <div class="row">
+        <div class="col">
+            <div class="card">
+                <img class="card-img-top" src="https://picsum.photos/400/400" alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title">Sarah Wilson</h5>
+                    <div class="text-center">
+                        London, England
+                    </div>
+                    <img class="icon" src="{{url_for('static',filename='icons/heart.svg')}}" width=14rem
+                        alt="Sponsor Icon">
+                    14 Sponsors
+                </div>
+            </div>
+        </div>
+        <div class="col">
+            <div class="card">
+                <img class="card-img-top" src="https://picsum.photos/id/237/400/400" alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title">John Smith</h5>
+                    <div class="text-center">
+                        Glasgow, Scotland
+                    </div>
+                    <img class="icon" src="{{url_for('static',filename='icons/heart.svg')}}" width=14rem
+                        alt="Sponsor Icon">
+                    22 Sponsors
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <div class="card">
+                <img class="card-img-top" src="https://picsum.photos/seed/picsum/400/400" alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title">Jeremy Bentham</h5>
+                    <div class="text-center">
+                        London, England
+                    </div>
+                    <img class="icon" src="{{url_for('static',filename='icons/heart.svg')}}" width=14rem
+                        alt="Sponsor Icon">
+                    0 Sponsors
+                </div>
+            </div>
+        </div>
+        <div class="col">
+            <div class="card">
+                <img class="card-img-top" src="https://picsum.photos/400/400" alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title">Sally Freeman</h5>
+                    <div class="text-center">
+                        Belfast, Northern Ireland
+                    </div>
+                    <img class="icon" src="{{url_for('static',filename='icons/heart.svg')}}" width=14rem
+                        alt="Sponsor Icon">
+                    22 Sponsors
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
