@@ -39,11 +39,6 @@ def test():
     return render_template('index.html')
 
 
-@app.route('/support_options')
-def support_options():
-    return render_template('')
-
-
 @app.route('/profiles_grid')
 def profiles_grid():
     profiles = query_db()
