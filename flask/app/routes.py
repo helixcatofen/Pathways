@@ -1,7 +1,46 @@
 from app import app
+from flask import redirect
+
+"""
+List of different pages:
+login
+choosing panel
+grid view / profiles_grid
+profile
+"""
 
 
 @app.route('/')
 @app.route('/index')
 def index():
-    return "Hello, World!"
+    return redirect('/support_options')
+
+
+@app.route('/support_options')
+def support_options():
+    return ""
+
+
+@app.route('/profiles_grid')
+def profiles_grid():
+    return ""
+
+
+@app.route('/profile')
+def profile():
+    return ""
+
+
+@app.route('/login')
+def login():
+    return ""
+
+
+# TODO needs donate page
+# @app.route('/profile/donate')
+# def donate():
+#     return ""
+
+
+
+
