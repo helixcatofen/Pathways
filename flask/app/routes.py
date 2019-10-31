@@ -22,9 +22,11 @@ def query_db():
         'Postman-Token': "d3d4467a-b606-4b40-be72-eb297d6401ab"
     }
 
-    response = requests.request("GET", url, headers=headers, params=querystring)
+    response = requests.request(
+        "GET", url, headers=headers, params=querystring)
 
-    return response.json()["Items"][0]
+    return response.json()["Items"]
+
 
 
 @app.route('/')
