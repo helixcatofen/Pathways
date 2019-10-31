@@ -1,0 +1,87 @@
+{% extends "base.html" %}
+
+{% begin content %}
+<!-- Page Content -->
+<br>
+<div class="text-center">
+    <img src="./static/Profile1.png" style="width:25%;">
+    <!-- {% block content %}{% endblock %} -->
+
+
+    <div class="container">
+        <br>
+        <h1 style="color: #27b4b8"><b>John Smith</b></h1>
+
+        <div id="goal">
+            <h2 style="color: grey; "><b>Goal</b></h2>
+            <p style="color: grey; font-size: 20px; ">"I would like to become a teacher"
+                <!--{{request.user.goal}}-->
+            </p>
+        </div>
+
+        <div id="profile_description">
+            <h3>Description</h3>
+            <p> My name is John and I am currently trying to get a job at an arts institute as a Music teacher.
+                Growing up, I used to play the violin and I would really appreciate if you were able to help me
+                raise money to buy one to practice before the job interview</p>
+        </div>
+
+        <table class="table">
+            <tbody>
+                <tr>
+                    <td>
+                        Phone Number
+                    </td>
+                    <td style="color:red">
+                        {{request.user.patient.phone_number}}
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Address
+                    </td>
+                    <td style="color:red">
+                        {{request.user.patient.address}}
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Insurance NO
+                    </td>
+                    <td style="color:red">
+                        {{request.user.patient.insurance_number}}
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Medical Condition
+                    </td>
+                    <td style="color:red">
+                        {{request.user.patient.medical_condition}}
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Emergency Contact
+                    </td>
+                    <td style="color:red">
+                        {{request.user.patient.emergency_contact_first_name}}
+                        {{request.user.patient.emergency_contact_last_name}}
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Emergency Contact Phone Number
+                    </td>
+                    <td style="color:red">
+                        {{request.user.patient.emergency_contact_phone_number}}
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+    </div>
+
+</div>
+
+{% endblock %}

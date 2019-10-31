@@ -1,28 +1,40 @@
+/* Base Formatting for Pathway */
+
+.user-related {
+  background-color: blue;
+}
+
 /* Sticky Footer Classes */
 
 html,
 body {
-  height: 100%;
+height: 100%;
+color: grey;
 }
 
+
 #page-content {
-  flex: 1 0 auto;
+flex: 1 0 auto;
 }
 
 #sticky-footer {
 background-color: #e82a31;
-  flex-shrink: none;
+flex-shrink: none;
 }
 
 .navbar {
-    background-color: #e82a31;
+  background-color: #e82a31;
 }
 
 .bg-red {
-    background-color: #e82a31;
+  background-color: #e82a31;
 }
 
 .nav-link {
-    font-size:1.6em;
-    color:white;
+  font-size:1.2em;
+  color:white;
+}
+
+#profile_description {
+  text-align: left;
 }
