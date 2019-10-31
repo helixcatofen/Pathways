@@ -33,7 +33,7 @@ def profile():
 
 @app.route('/login')
 def login():
-    return ""
+    return render_template('login.html')
 
 
 # TODO needs donate page
