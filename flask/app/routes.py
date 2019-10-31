@@ -31,6 +31,11 @@ def query_db(key=None):
 @app.route('/')
 @app.route('/index')
 def index():
+    return redirect('/profiles_grid')
+
+
+@app.route('/test')
+def index():
     return render_template('index.html')
 
 
