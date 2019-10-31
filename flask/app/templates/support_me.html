@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 
 {% block css %}
-<link rel="stylesheet" href="../assets/css/grid.css">
+<link rel="stylesheet" href="{{url_for('static',filename='css/grid.css')}}">
 {% endblock %}
 
 {% block content %}
@@ -15,7 +15,8 @@
                     <div class="text-center">
                         London, England
                     </div>
-                    <img class="icon" src="../assets/icons/heart.svg" width=14rem alt="Sponsor Icon">
+                    <img class="icon" src="{{url_for('static',filename='icons/heart.svg')}}" width=14rem
+                        alt="Sponsor Icon">
                     14 Sponsors
                 </div>
             </div>
@@ -28,7 +29,8 @@
                     <div class="text-center">
                         Glasgow, Scotland
                     </div>
-                    <img class="icon" src="../assets/icons/heart.svg" width=14rem alt="Sponsor Icon">
+                    <img class="icon" src="{{url_for('static',filename='icons/heart.svg')}}" width=14rem
+                        alt="Sponsor Icon">
                     22 Sponsors
                 </div>
             </div>
@@ -43,7 +45,8 @@
                     <div class="text-center">
                         London, England
                     </div>
-                    <img class="icon" src="../assets/icons/heart.svg" width=14rem alt="Sponsor Icon">
+                    <img class="icon" src="{{url_for('static',filename='icons/heart.svg')}}" width=14rem
+                        alt="Sponsor Icon">
                     0 Sponsors
                 </div>
             </div>
@@ -56,7 +59,8 @@
                     <div class="text-center">
                         Belfast, Northern Ireland
                     </div>
-                    <img class="icon" src="../assets/icons/heart.svg" width=14rem alt="Sponsor Icon">
+                    <img class="icon" src="{{url_for('static',filename='icons/heart.svg')}}" width=14rem
+                        alt="Sponsor Icon">
                     22 Sponsors
                 </div>
             </div>
