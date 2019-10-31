@@ -24,10 +24,11 @@ background-color: #e82a31;
     background-color: #e82a31;
 }
 
-.btn-danger {
+.bg-red {
     background-color: #e82a31;
 }
 
-.bg-red {
-    background-color: #e82a31;
+.nav-link {
+    font-size:1.2em;
+    color:white;
 }
