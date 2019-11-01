@@ -32,7 +32,8 @@ def query_db(key=None):
             if item["user"]['S'] == key:
                 return item
 
-def send_message():
+
+def send_message(name):
     url = "https://api.ciscospark.com/v1/messages"
 
     payload = "{\n  \"toPersonEmail\": \"mario.l.geuenich@gmail.com\",\n  \"text\": \"Hi there\"\n}"
@@ -82,11 +83,8 @@ def profile(name):
 def login():
     return render_template('login.html')
 
-@app.route('/chat')
-def chat():
-    return render_template('chat.html')
 
-@app.route('/callapi')
-def callAPI():
-    send_message()
+@app.route('/call_chat_api/<name>')
+def call_chat_api(name):
+    send_message(name)
     return redirect('https://teams.webex.com/')

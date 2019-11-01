@@ -40,12 +40,11 @@
     <hr>
 
     <div class="btn btn-group-vertical">
-        <button type="button" class="btn btn-danger" style="border-radius: 20%">
-            Donate to Me
-        </button>
-        <button type="button" class="btn btn-primary" style="border-radius: 20%">
-            Mentor Me
-        </button>
+        <form>
+            <input type="number">
+            <input type="button" class="btn btn-danger" value="Donate to Me">
+        </form>
+        <input type="button" class="btn btn-danger" value="Mentor Me" onclick="location.href='/call_chat_api/{{profile['user']['S']}}'">
     </div>
 </div>
 
