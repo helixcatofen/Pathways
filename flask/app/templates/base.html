@@ -4,6 +4,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
         integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="{{url_for('static',filename='css/theme.css')}}">
+    <link rel="stylesheet" href="{{url_for('static',filename='fontawesome/css/all.css')}}">
 
     {% block css %}
     {% endblock %}
@@ -41,28 +42,28 @@
                             My Account
                         </a>
                     </li>
-                    <li>
-                        <a class="nav-link text-uppercase" href="/profile">
+                    <li class="navbar-btn btn btn-danger bg-red">
+                        <a class="nav-link text-uppercase" style="color:black;" href="/profile">
                             My Mentees
                         </a>
                     </li>
                     <li class="navbar-btn btn btn-danger bg-red">
-                        <a class="nav-link text-uppercase" href="/login">
+                        <a class="nav-link text-uppercase" style="color:black;" href="/login">
                             Saved Profiles
                         </a>
                     </li>
                     <li class="navbar-btn btn btn-danger bg-red">
-                        <a class="nav-link text-uppercase" href="#">
+                        <a class="nav-link text-uppercase" style="color:black;" href="#">
                             My Donations
                         </a>
                     </li>
                     <li class="navbar-btn btn btn-danger bg-red">
-                        <a class="nav-link text-uppercase" href="#">
+                        <a class="nav-link text-uppercase" style="color:black;" href="#">
                             Settings
                         </a>
                     </li>
                     <li class="navbar-btn btn btn-danger bg-red">
-                        <a class="nav-link text-uppercase" href="#">
+                        <a class="nav-link text-uppercase" style="color:black;" href="#">
                             Logout
                         </a>
                     </li>
@@ -79,9 +80,29 @@
 
     <div class="d-flex flex-column">
         <footer id="sticky-footer" class="bg-red py-4 text-white-50">
-            <div class="container text-center">
-                <small>Copyright &copy; Your Website</small>
-            </div>
+            <div class="row">
+                <div class="col-3">
+
+                </div>
+                <div class="col-2 text-center">
+                    <button type="button" class="btn btn-light btn-lg">
+                        <i class="fa fa-search fa-lg"></i>
+                    </button>
+                </div>
+                <div class="col-2 text-center">
+                    <button type="button" class="btn btn-light btn-lg">
+                        <i class="fas fa-home fa-lg"></i>
+                    </button>
+                </div>
+                <div class="col-2 text-center">
+                    <button type="button" class="btn btn-light btn-lg">
+                        <i class="fas fa-external-link-alt fa-lg"></i>
+                    </button>
+                </div>
+                <div class="col-3">
+
+                </div>
+            </div>>
         </footer>
     </div>
 

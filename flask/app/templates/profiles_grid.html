@@ -1,33 +1,50 @@
 {% extends "base.html" %}
 
 {% block css %}
+<link rel="stylesheet" href="{{url_for('static',filename='fontawesome/css/all.css')}}">
 <link rel="stylesheet" href="{{url_for('static',filename='css/grid.css')}}">
 {% endblock %}
 
 {% block content %}
 
-<h2>People looking for support</h2>
-<input type="text" class="form-control" placeholder="Find Someone" aria-label="Find Someone"
-    aria-describedby="btnGroupAddon">
+<div class="row">
+    <div class="col-lg-4" style="margin: 0 auto; float: none;">
+        <div class="input-group" style="padding-top:10vh;padding-bottom:10vh;height:30vh;">
+            <input type="text" class="form-control" placeholder="Search" style="background-color:#27b4b8;color:white;">
+            <div class="input-group-append" style="background-color:#27b4b8;">
+                <button class="btn btn-primary" style="background-color:#27b4b8;" type="button">
+                    <i class="fa fa-search"></i>
+                </button>
+            </div>
+        </div>
+    </div><!-- /.col-lg-4 -->
+</div><!-- /.row -->
+
+
+
+<h2 class="text-uppercase" style="color:#757575;font-size:1rem;padding-top:10px;">People looking for support</h2>
+
+<br>
+
 <div class="container text-center">
     <div class="row">
         {% for profile in profiles %}
-            <div class="card-deck col-md-4 col-sm-6 col-xs-1">
-                <div class="card" onclick="location.href='/profile/{{profile['user']['S']}}'">
-                    <img class="card-img-top text-center" src="{{url_for('static',filename=profile['picture']['S'])}}"
-                        style="width:20vw;position:relative;align-self: center;" alt="Card image cap">
-                    <div class="card-body">
-                        <h5 class="card-title">{{profile["user"]["S"] + " " + profile["lastName"]["S"]}}</h5>
-                        <div class="text-center">
-                            {{profile["location"]["S"]}}
-                        </div>
-
-                        <img class="icon" src="{{url_for('static',filename='icons/heart.svg')}}" width=14rem
-                            alt="Sponsor Icon">
-                        14 Sponsors
+        <div class="card-deck col-md-4 col-sm-6 col-xs-1">
+            <div class="card" onclick="location.href='/profile/{{profile['user']['S']}}'">
+                <img class="card-img-top text-center" src="{{url_for('static',filename=profile['picture']['S'])}}"
+                    style="width:20vw;position:relative;align-self: center;" alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title">{{profile["user"]["S"] + " " + profile["lastName"]["S"]}}</h5>
+                    <div class="text-center">
+                        {{profile["location"]["S"]}}
                     </div>
+
+                    <img class="icon" src="{{url_for('static',filename='icons/heart.svg')}}" width=14rem
+                        alt="Sponsor Icon">
+                    14 Sponsors
                 </div>
             </div>
+        </div>
         {% endfor %}
     </div>
 </div>
