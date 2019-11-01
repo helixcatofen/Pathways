@@ -99,9 +99,11 @@ def login():
     return render_template('login.html')
 
 
-@app.route('/donate')
-def donate():
-    return render_template('donations.html')
+@app.route('/donate/<name>')
+def donate(name):
+    profile = query_db(key=name)
+    print(profile)
+    return render_template('donations.html', profile=profile)
 
 
 @app.route('/call_chat_api/<name>')
