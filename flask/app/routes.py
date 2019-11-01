@@ -29,7 +29,7 @@ def query_db(key=None):
         return response.json()["Items"]
     else:
         for item in response.json()["Items"]:
-            if item["user"] == key:
+            if item["user"]['S'] == key:
                 return item
 
 def send_message():

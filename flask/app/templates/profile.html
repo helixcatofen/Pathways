@@ -4,7 +4,6 @@
 {% endblock %}
 
 {% block content %}
-<!-- Page Content -->
 <br>
 <div class="text-center">
     <img src="{{url_for('static',filename=profile['picture']['S'])}}" style="width:25%;">
@@ -19,32 +18,36 @@
             </div>
 
             {% for goal in profile["goals"]["L"] %}
-            <div id="goal">
-                <b>{{goal["M"]["title"]["S"]</b>
-            <div class="progress">
-                    <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="{{goal['M']['totalMoney']['N']}}"
-                    aria-valuemin="0" aria-valuemax="{{goal['M']['totalMoney']['N']}}" style="width: 75%"></div>
+                <div id="goal">
+                    <div class="progress">
+                            <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar"
+                                aria-valuenow="{{goal['M']['currAmount']['N']}}"
+                                aria-valuemin="0" aria-valuemax="{{goal['M']['totalAmount']['N']}}" style="width: 75%">
+                            </div>
+                    </div>
+                    <p style="color: grey; font-size: 20px; ">
+                        {{goal["M"]["desc"]["S"]}}
+                    </p>
+                </div>
+            {% endfor %}
+            <ul class="list-group">
+                {% for coach in profile["coaching"]["L"] %}
+                    <li class="list-group-item">{{coach["S"]}}</li>
+                {% endfor %}
+            </ul>
+        </h3>
     </div>
-    <p style="color: grey; font-size: 20px; ">
-        {{goal["M"]["desc"]["S"]}}
-    </p>
+    <hr>
+
+    <div class="btn btn-group-vertical">
+        <button type="button" class="btn btn-danger" style="border-radius: 20%">
+            Donate to Me
+        </button>
+        <button type="button" class="btn btn-primary" style="border-radius: 20%">
+            Mentor Me
+        </button>
+    </div>
 </div>
-{% endfor %}
-<ul class="list-group">
-    {% for coach in profile["coaching"]["L"] %}
-    <li class="list-group-item">coach["S"]</li>
-    {% endfor %}
-</ul>
 
 
-</div>
-<hr>
-<div class="btn btn-group-vertical">
-    <button type="button" class="btn btn-danger" style="border-radius: 20%">
-        Donate to Me
-    </button>
-    <button type="button" class="btn btn-primary" style="border-radius: 20%">
-        Mentor Me
-    </button>
-</div>
 {% endblock %}
