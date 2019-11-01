@@ -6,11 +6,7 @@
 {% endblock %}
 
 {% block content %}
-{% if current_user.is_anonymous %}
 
-{% else %}
-Help others follow a new path { current_user.username }}!
-{% endif %}
 
 <div class="row">
     <div class="col-lg-4" style="margin: 0 auto; float: none;">
@@ -26,7 +22,11 @@ Help others follow a new path { current_user.username }}!
 </div>
 
 
-<h2 class="text-uppercase" style="color:#757575;font-size:1rem;padding-top:10px;">People looking for support</h2>
+<h2 class="text-uppercase" style="color:#757575;font-size:1rem;padding-top:10px;">{% if current_user.is_anonymous %}
+
+    {% else %}
+    Help others follow a new path {{ current_user.username }}!
+    {% endif %}</h2>
 
 <br>
 
