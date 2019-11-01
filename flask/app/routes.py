@@ -32,6 +32,28 @@ def query_db(key=None):
             if item["user"] == key:
                 return item
 
+def send_message():
+    url = "https://api.ciscospark.com/v1/messages"
+
+    payload = "{\n  \"toPersonEmail\": \"mario.l.geuenich@gmail.com\",\n  \"text\": \"Hi there\"\n}"
+    headers = {
+        'Content-Type': "application/json",
+        'Authorization': "Bearer ZDdjYmY0NmUtYmU0My00ZGM2LWEwYjYtMDQxMzVlOTE5ZGE2NGNlYzI5NTctYjA5_PF84_55b3cabf-52c4-405d-916d-dee2f1741e18",
+        'User-Agent': "PostmanRuntime/7.19.0",
+        'Accept': "*/*",
+        'Cache-Control': "no-cache",
+        'Postman-Token': "a4ad859b-fc2e-464c-92d0-c8fbd95a6769,d593a558-15a0-4f39-a4c7-c2fc2cc25e0a",
+        'Host': "api.ciscospark.com",
+        'Accept-Encoding': "gzip, deflate",
+        'Content-Length': "73",
+        'Connection': "keep-alive",
+        'cache-control': "no-cache"
+    }
+
+    response = requests.request("POST", url, data=payload, headers=headers)
+
+    print(response.text)
+
 
 @app.route('/')
 @app.route('/index')
@@ -59,3 +81,12 @@ def profile(name):
 @app.route('/login')
 def login():
     return render_template('login.html')
+
+@app.route('/chat')
+def chat():
+    return render_template('chat.html')
+
+@app.route('/callapi')
+def callAPI():
+    send_message()
+    return redirect('https://teams.webex.com/')
