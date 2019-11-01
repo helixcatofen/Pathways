@@ -88,3 +88,8 @@ def login():
 def call_chat_api(name):
     send_message(name)
     return redirect('https://teams.webex.com/')
+
+
+@app.route('/payment')
+def payment():
+    return render_template('payment.html')

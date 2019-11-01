@@ -18,21 +18,21 @@
             </div>
 
             {% for goal in profile["goals"]["L"] %}
-                <div id="goal">
-                    <div class="progress">
-                            <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar"
-                                aria-valuenow="{{goal['M']['currAmount']['N']}}"
-                                aria-valuemin="0" aria-valuemax="{{goal['M']['totalAmount']['N']}}" style="width: 75%">
-                            </div>
+            <div id="goal">
+                <div class="progress">
+                    <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar"
+                        aria-valuenow="{{goal['M']['currAmount']['N']}}" aria-valuemin="0"
+                        aria-valuemax="{{goal['M']['totalAmount']['N']}}" style="width: 75%">
                     </div>
-                    <p style="color: grey; font-size: 20px; ">
-                        {{goal["M"]["desc"]["S"]}}
-                    </p>
                 </div>
+                <p style="color: grey; font-size: 20px; ">
+                    {{goal["M"]["desc"]["S"]}}
+                </p>
+            </div>
             {% endfor %}
             <ul class="list-group">
                 {% for coach in profile["coaching"]["L"] %}
-                    <li class="list-group-item">{{coach["S"]}}</li>
+                <li class="list-group-item">{{coach["S"]}}</li>
                 {% endfor %}
             </ul>
         </h3>
@@ -44,7 +44,8 @@
             <input type="number">
             <input type="button" class="btn btn-danger" value="Donate to Me">
         </form>
-        <input type="button" class="btn btn-danger" value="Mentor Me" onclick="location.href='/call_chat_api/{{profile['user']['S']}}'">
+        <input type="button" class="btn btn-danger" value="Mentor Me"
+            onclick="location.href='/call_chat_api/{{profile['user']['S']}}'">
     </div>
 </div>
 
