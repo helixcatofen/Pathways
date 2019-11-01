@@ -79,6 +79,13 @@ def profile(name):
     return render_template('profile.html', profile=profile)
 
 
+@app.route('/mentees')
+def mentees():
+    profiles = query_db()[:2]
+    print(profiles)
+    return render_template('mentees.html', profiles=profiles)
+
+
 @app.route('/login')
 def login():
     return render_template('login.html')
