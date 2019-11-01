@@ -149,12 +149,15 @@ def payment(name, donation):
 
 @app.route('/payment/<name>', methods=['GET', 'POST'])
 def payment_api_call(name):
-    # print(name)
+    print(name)
     # print(request.form['amount'])
 
     amount = 100
 
     update_db(name, amount)
-    # redirect('/profile/{{name}}')
+    # redirect('/')
 
-# payment/{{goal['name}}/{{goal['loop_key'}}/{{amount}}'
+    profiles = query_db()
+    return render_template('profiles_grid.html', profiles=profiles)
+
+
