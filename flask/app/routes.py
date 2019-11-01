@@ -1,5 +1,5 @@
 from app import app
-from flask import redirect, render_template
+from flask import redirect, render_template, request
 import requests
 import json
 
@@ -75,11 +75,11 @@ def update_db(name, amount):
     payload = {
         "TableName": "ciscodb",
         "Key": {"user": {
-            "S": "John"
-        }
+            "S": name
+            }
         },
         "UpdateExpression": "set goals[0].currAmount = goals[0].currAmount + :val",
-        "ExpressionAttributeValues": {":val": {"N": "10"}}
+        "ExpressionAttributeValues": {":val": {"N": "20"}}
     }
     headers = {
         'Content-Type': "application/json",
@@ -143,18 +143,18 @@ def donate(name):
 @app.route('/payment/<name>/<donation>')
 def payment(name, donation):
     goal = query_db(key=name, secondary_key=donation)
-    print(query_db(key=name))
-    # goal['loop_key'] = loop_key
-    # goal['name'] = name
+    goal['name'] = name
     return render_template('payment.html', goal=goal)
 
 
-@app.route('/payment/<name>/<donation_type_id>/<amount>')
-def payment_api_call(name, donation_type_id, amount):
-    print(name)
-    print(donation_type_id)
-    print(amount)
-    # query_db()
-    redirect('/profile/{{name}}')
+@app.route('/payment/<name>', methods=['GET', 'POST'])
+def payment_api_call(name):
+    # print(name)
+    # print(request.form['amount'])
+
+    amount = 100
+
+    update_db(name, amount)
+    # redirect('/profile/{{name}}')
 
 # payment/{{goal['name}}/{{goal['loop_key'}}/{{amount}}'

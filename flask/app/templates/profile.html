@@ -20,7 +20,7 @@
                 <div class="progress">
                     <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar"
                         aria-valuenow="{{goal['M']['currAmount']['N']}}" aria-valuemin="0"
-                        aria-valuemax="{{goal['M']['totalAmount']['N']}}" style="width: 75%">
+                        aria-valuemax="{{goal['M']['totalAmount']['N']}}" style="width: {{goal['M']['currAmount']['N']}}%">
                     </div>
                 </div>
                 <p style="color: grey; font-size: 20px; ">
@@ -44,7 +44,7 @@
         <br>
 
 <!--        donate item-->
-        <form> onsubmit="location.href='/donate/{{profile['user']['S']}}/{{item}}'">
+        <form onsubmit="location.href='/donate/{{profile['user']['S']}}/{{item}}'">
             <select>
                 {% for donation in donations %}
                     <option value="{{donation}}" id="item">{{donation}}</option>
