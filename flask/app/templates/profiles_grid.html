@@ -10,12 +10,11 @@
 <input type="text" class="form-control" placeholder="Find Someone" aria-label="Find Someone"
     aria-describedby="btnGroupAddon">
 <div class="container text-center">
-    {% for profile_ in profiles %}
     <div class="row">
-        <div class="col">
+        {% for profile_ in profiles %}
+            <div class="card-deck col-md-4 col-sm-6 col-xs-1">
             <a href="/profile/{{ profile_['user']['S'] }}">
                 <div class="card">
-                    <br>
                     <img class="card-img-top text-center" src="{{url_for('static',filename=profile_['picture']['S'])}}"
                         style="width:20vw;position:relative;align-self: center;" alt="Card image cap">
                     <div class="card-body">
@@ -23,14 +22,15 @@
                         <div class="text-center">
                             {{profile_["location"]["S"]}}
                         </div>
+
                         <img class="icon" src="{{url_for('static',filename='icons/heart.svg')}}" width=14rem
                             alt="Sponsor Icon">
                         14 Sponsors
                     </div>
                 </div>
             </a>
-        </div>
+            </div>
+        {% endfor %}
     </div>
-    {% endfor %}
 </div>
 {% endblock %}
