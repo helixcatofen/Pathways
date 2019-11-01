@@ -1,6 +1,7 @@
+from flask import redirect, flash, render_template
 from app import app
-from flask import redirect, render_template
 import requests
+from app.forms import LoginForm
 
 """
 List of different pages:
@@ -94,9 +95,21 @@ def mentees():
     return render_template('mentees.html', profiles=profiles)
 
 
-@app.route('/login')
+@app.route('/login', methods=['GET', 'POST'])
 def login():
-    return render_template('login.html')
+    form = LoginForm()
+    if form.validate_on_submit():
+        flash('Login requested for user {}, remember_me={}'.format(
+            form.username.data, form.remember_me.data))
+        return redirect('index')
+    return render_template('temp_login.html', title='Sign In', form=form)
+    # return render_template('login.html')
+
+
+@app.route('/logout')
+def logout():
+    # logout_user()
+    return redirect('/index')
 
 
 @app.route('/donate/<name>')
