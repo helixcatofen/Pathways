@@ -41,7 +41,7 @@
                 <ul class="navbar-nav ml-auto">
                     {% if current_user.is_anonymous %}
                     <li class="navbar-btn btn btn-danger bg-red">
-                        <a class="nav-link text-uppercase" style="color:black;" href="#">
+                        <a class="nav-link text-uppercase" style="color:black;" href="{{ url_for('login') }}">
                             Login
                         </a>
                     </li>
@@ -53,7 +53,7 @@
                     </li>
                     {% endif %}
                     <li class="navbar-btn btn btn-danger bg-red">
-                        <a class="nav-link text-uppercase" style="color:black;" href="/mentees">
+                        <a class="nav-link text-uppercase" style="color:black;" href="{{ url_for('mentees') }}">
                             My Mentees
                         </a>
                     </li>

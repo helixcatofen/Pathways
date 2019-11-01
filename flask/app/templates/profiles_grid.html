@@ -6,6 +6,11 @@
 {% endblock %}
 
 {% block content %}
+{% if current_user.is_anonymous %}
+
+{% else %}
+Help others follow a new path { current_user.username }}!
+{% endif %}
 
 <div class="row">
     <div class="col-lg-4" style="margin: 0 auto; float: none;">
