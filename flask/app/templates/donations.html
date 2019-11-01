@@ -22,7 +22,7 @@
         <tr>
             <th scope="row">{{loop.index}}</th>
             <td>
-                <button type="button" class="btn btn-light btn-lg">
+                <button type="button" class="btn btn-light btn-lg" onclick="location.href='/payment/{{profile['user']['S']}}/{{goal['M']['title']['S']}}'">
                     {{goal["M"]["title"]["S"]}}
                 </button>
             </td>

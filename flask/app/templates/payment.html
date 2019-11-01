@@ -40,7 +40,7 @@ Credit Card Payment Section
                                     <div class="form-group">
                                         <label><span class="hidden-xs">Quantity</span></label>
                                         <div class="input-group">
-                                            <input type="number" placeholder="1" name="" class="form-control" required>
+                                            <input id="amount" type="number" placeholder="1" name="" class="form-control" required>
                                         </div>
                                     </div>
                                 </div>
@@ -126,11 +126,9 @@ Credit Card Payment Section
                                         <input type="text" required class="form-control">
                                     </div>
                                 </div>
-
-
-
                             </div>
-                            <button type="button" class="subscribe btn btn-primary btn-block rounded-pill shadow-sm">
+                            <button type="button" class="subscribe btn btn-primary btn-block rounded-pill shadow-sm"
+                                onclick="location.href='payment/{{goal['name']}}/{{goal['loop_key']}}/{{amount}}'">
                                 Confirm </button>
                         </form>
                     </div>

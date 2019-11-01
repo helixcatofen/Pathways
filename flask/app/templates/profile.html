@@ -38,10 +38,23 @@
     <hr>
 
     <div class="btn btn-group-vertical">
-        <form>
-            <input type="number">
-            <input type="button" class="btn btn-danger" value="Donate to Me">
+<!--        contribute money-->
+        <input type="button" class="btn btn-danger" value="Donate money towards cause" onclick="location.href='/donate/{{profile['user']['S']}}'">
+
+        <br>
+
+<!--        donate item-->
+        <form> onsubmit="location.href='/donate/{{profile['user']['S']}}/{{item}}'">
+            <select>
+                {% for donation in donations %}
+                    <option value="{{donation}}" id="item">{{donation}}</option>
+                {% endfor %}
+            </select>
+            <input type="submit" class="btn btn-danger" value="Donate item">
         </form>
+
+        <br>
+
         <input type="button" class="btn btn-danger" value="Mentor Me"
             onclick="location.href='/call_chat_api/{{profile['user']['S']}}'">
     </div>

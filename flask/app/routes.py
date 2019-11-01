@@ -111,14 +111,14 @@ def profiles_grid():
 
 @app.route('/profile/<name>')
 def profile(name):
-    profile = query_db(key=name)
-    return render_template('profile.html', profile=profile)
+    profile = query_db(name)
+    donations = [list(x.values())[0] for x in profile['donations']['L']]
+    return render_template('profile.html', profile=profile, donations=donations)
 
 
 @app.route('/mentees')
 def mentees():
     profiles = query_db()[:2]
-    print(profiles)
     return render_template('mentees.html', profiles=profiles)
 
 
@@ -127,20 +127,34 @@ def login():
     return render_template('login.html')
 
 
-@app.route('/donate/<name>')
-def donate(name):
-    profile = query_db(key=name)
-    print(profile)
-    return render_template('donations.html', profile=profile)
-
-
 @app.route('/call_chat_api/<name>')
 def call_chat_api(name):
     send_message(name)
     return redirect('https://teams.webex.com/')
 
 
+@app.route('/donate/<name>')
+def donate(name):
+    profile = query_db(key=name)
+    # return redirect('/payment/john/personal-allowance')
+    return render_template('donations.html', profile=profile)
+
+
 @app.route('/payment/<name>/<donation>')
 def payment(name, donation):
     goal = query_db(key=name, secondary_key=donation)
+    print(query_db(key=name))
+    # goal['loop_key'] = loop_key
+    # goal['name'] = name
     return render_template('payment.html', goal=goal)
+
+
+@app.route('/payment/<name>/<donation_type_id>/<amount>')
+def payment_api_call(name, donation_type_id, amount):
+    print(name)
+    print(donation_type_id)
+    print(amount)
+    # query_db()
+    redirect('/profile/{{name}}')
+
+# payment/{{goal['name}}/{{goal['loop_key'}}/{{amount}}'
