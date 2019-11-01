@@ -68,17 +68,26 @@ def send_message(name):
 
     print(response.text)
 
+
 def update_db(name, amount):
     url = "https://pjgf4yqxo7.execute-api.eu-west-3.amazonaws.com/default/hackBackend"
 
-    payload = "{\r\n\t\"TableName\": \"ciscodb\",\r\n\t\"Key\": {\"user\": {\r\n                \"S\": \"John\"\r\n            }\r\n\t},\r\n\t\"UpdateExpression\":\"set goals[0].currAmount = :val\",\r\n\t\"ExpressionAttributeValues\":{ \":val\":{\"N\":\"10\"}}\r\n\t}"
+    payload = {
+        "TableName": "ciscodb",
+        "Key": {"user": {
+            "S": "John"
+        }
+        },
+        "UpdateExpression": "set goals[0].currAmount = goals[0].currAmount + :val",
+        "ExpressionAttributeValues": {":val": {"N": "10"}}
+    }
     headers = {
         'Content-Type': "application/json",
         'cache-control': "no-cache",
         'Postman-Token': "cc469354-b6fc-4b81-9bfb-437d04f4ec36"
     }
 
-    response = requests.request("PUT", url, data=payload, headers=headers)
+    response = requests.request("PUT", url, data=json.dumps(payload), headers=headers)
 
     print(response.text)
 
