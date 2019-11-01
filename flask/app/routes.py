@@ -12,7 +12,7 @@ profile
 """
 
 
-def query_db(key=None):
+def query_db(key=None, secondary_key=None):
     url = "https://pjgf4yqxo7.execute-api.eu-west-3.amazonaws.com/default/hackBackend"
 
     querystring = {"TableName": "ciscodb"}
@@ -27,10 +27,18 @@ def query_db(key=None):
 
     if key is None:
         return response.json()["Items"]
-    else:
+    elif key is not None and secondary_key is None:
         for item in response.json()["Items"]:
             if item["user"]['S'] == key:
                 return item
+    elif key is not None and secondary_key is not None:
+        for item in response.json()["Items"]:
+            if item["user"]["S"] == key:
+                for goal in item["goals"]["L"]:
+                    if goal["M"]["title"]["S"] == secondary_key:
+                        return goal["M"]
+    else:
+        return None
 
 
 def send_message(name):
@@ -75,7 +83,7 @@ def profiles_grid():
 
 @app.route('/profile/<name>')
 def profile(name):
-    profile = query_db(name)
+    profile = query_db(key=name)
     return render_template('profile.html', profile=profile)
 
 
@@ -91,12 +99,18 @@ def login():
     return render_template('login.html')
 
 
+@app.route('/donate')
+def donate():
+    return render_template('donations.html')
+
+
 @app.route('/call_chat_api/<name>')
 def call_chat_api(name):
     send_message(name)
     return redirect('https://teams.webex.com/')
 
 
-@app.route('/payment')
-def payment():
-    return render_template('payment.html')
+@app.route('/payment/<name>/<donation>')
+def payment(name, donation):
+    goal = query_db(key=name, secondary_key=donation)
+    return render_template('payment.html', goal=goal)

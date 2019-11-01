@@ -4,8 +4,8 @@
   }
   
   body {
-    background: #4f4f4f;
-    background: linear-gradient(to right, #4f4f4f, #9b9191);
+    background: white;
+    background: linear-gradient(to right, white, #9b9191);
   }
   
   .card-signin {
