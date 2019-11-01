@@ -25,7 +25,12 @@ def query_db(key=None):
     response = requests.request(
         "GET", url, headers=headers, params=querystring)
 
-    return response.json()["Items"]
+    if key is None:
+        return response.json()["Items"]
+    else:
+        for item in response.json()["Items"]:
+            if item["user"] == key:
+                return item
 
 
 @app.route('/')

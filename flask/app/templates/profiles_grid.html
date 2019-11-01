@@ -16,20 +16,17 @@
             <a href="/profile/{{ profile_['user']['S'] }}">
                 <div class="card">
                     <br>
-                    <img class="card-img-top text-center" src="{{url_for('static',filename=profile['picture']['S'])}}"
+                    <img class="card-img-top text-center" src="{{url_for('static',filename=profile_['picture']['S'])}}"
                         style="width:20vw;position:relative;align-self: center;" alt="Card image cap">
                     <div class="card-body">
-                        <h5 class="card-title">{{profile["user"]["S"] + " " + profile["lastName"]["S"]}}</h5>
+                        <h5 class="card-title">{{profile_["user"]["S"] + " " + profile_["lastName"]["S"]}}</h5>
                         <div class="text-center">
-                            {{profile["location"]["S"]}}
+                            {{profile_["location"]["S"]}}
                         </div>
                         <img class="icon" src="{{url_for('static',filename='icons/heart.svg')}}" width=14rem
                             alt="Sponsor Icon">
                         14 Sponsors
                     </div>
-                    <img class="icon" src="{{url_for('static',filename='icons/heart.svg')}}" style="width:14rem;"
-                        alt="Sponsor Icon">
-                    14 Sponsors
                 </div>
             </a>
         </div>
