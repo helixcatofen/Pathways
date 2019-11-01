@@ -1,6 +1,7 @@
 from app import app
 from flask import redirect, render_template
 import requests
+import json
 
 """
 List of different pages:
@@ -44,10 +45,14 @@ def query_db(key=None, secondary_key=None):
 def send_message(name):
     url = "https://api.ciscospark.com/v1/messages"
 
-    payload = "{\n  \"toPersonEmail\": \"mario.l.geuenich@gmail.com\",\n  \"text\": \"Hi there\"\n}"
+    payload = {
+        "toPersonEmail": "mario.l.geuenich@gmail.com",
+        "text": "Hi " + name + " my name is Anna, I would like to help you in your path to a job. "
+                               "Should we set up a meeting soon? I am available every Wednesday."
+    }
     headers = {
         'Content-Type': "application/json",
-        'Authorization': "Bearer ZDdjYmY0NmUtYmU0My00ZGM2LWEwYjYtMDQxMzVlOTE5ZGE2NGNlYzI5NTctYjA5_PF84_55b3cabf-52c4-405d-916d-dee2f1741e18",
+        'Authorization': "Bearer NDA0OTZiYmYtNDMwZC00N2E1LWEwZTUtMGViYjkzYTA5MmYwYmQ0NWRmNmItNjU1_PF84_55b3cabf-52c4-405d-916d-dee2f1741e18",
         'User-Agent': "PostmanRuntime/7.19.0",
         'Accept': "*/*",
         'Cache-Control': "no-cache",
@@ -59,7 +64,21 @@ def send_message(name):
         'cache-control': "no-cache"
     }
 
-    response = requests.request("POST", url, data=payload, headers=headers)
+    response = requests.request("POST", url, data=json.dumps(payload), headers=headers)
+
+    print(response.text)
+
+def update_db(name, amount):
+    url = "https://pjgf4yqxo7.execute-api.eu-west-3.amazonaws.com/default/hackBackend"
+
+    payload = "{\r\n\t\"TableName\": \"ciscodb\",\r\n\t\"Key\": {\"user\": {\r\n                \"S\": \"John\"\r\n            }\r\n\t},\r\n\t\"UpdateExpression\":\"set goals[0].currAmount = :val\",\r\n\t\"ExpressionAttributeValues\":{ \":val\":{\"N\":\"10\"}}\r\n\t}"
+    headers = {
+        'Content-Type': "application/json",
+        'cache-control': "no-cache",
+        'Postman-Token': "cc469354-b6fc-4b81-9bfb-437d04f4ec36"
+    }
+
+    response = requests.request("PUT", url, data=payload, headers=headers)
 
     print(response.text)
 
